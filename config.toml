@@ -1,0 +1,10 @@
+baseURL = "https://reikote.github.io"
+languageCode = "ja"
+title = "My New Hugo Site"
+theme = "learn"
+#publishDir = "../docs"  # hugo コマンドを実行したときに格納されるファイル置き場
+#relativeURLs = true # 相対パスで保存に変更（デフォルトでは絶対パス（relativeURLs =false）)
+
+[params]
+  # Change default color scheme with a variant one. Can be "red", "blue", "green".
+  themeVariant = "green"

@@ -2,4 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
+  <url>
+    <loc>https://reikote.github.io/posts/00/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/01/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/02/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/03/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/04/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/05/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/06/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/ansible-sakuma-san/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/appendix/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/appendix/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9-/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/appendix/learn%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/</loc>
+    <lastmod>2020-12-22T11:34:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/appendix/hugo-install/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/appendix/%E7%94%A8%E8%AA%9E%E9%9B%86/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on/00/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on/01/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on/02/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on/03/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on-aws/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on-aws/00/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on-aws/01/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on-aws/02/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/hands-on-aws/03/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/posts/</loc>
+    <lastmod>2020-12-22T12:11:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/readme_jp/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://reikote.github.io/tags/</loc>
+  </url>
+  
 </urlset>

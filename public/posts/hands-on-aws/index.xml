@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>学習環境構築ハンズオン　AWS on My New Hugo Site</title>
+    <link>https://reikote.github.io/posts/hands-on-aws/</link>
+    <description>Recent content in 学習環境構築ハンズオン　AWS on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 22 Dec 2020 12:11:23 +0900</lastBuildDate><atom:link href="https://reikote.github.io/posts/hands-on-aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ハンズオン1</title>
+      <link>https://reikote.github.io/posts/hands-on-aws/00/</link>
+      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
+      
+      <guid>https://reikote.github.io/posts/hands-on-aws/00/</guid>
+      <description>Docker &amp;amp; Docker Composeのインストール 管理ノードと計算ノードに下記Versionをインストールしていきます
+   Software Version Version Info     Docker 19.03.09 https://docs.docker.com/engine/release-notes/   Docker Compose 1.28.2 https://docs.docker.com/compose/release-notes/     Dockerのインストール ※こちらを参考
+ セットアップ  $ sudo apt-get update $ sudo apt-get install \ apt-transport-https \ ca-certificates \ curl \ gnupg-agent \ software-properties-common $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo apt-key fingerprint 0EBFCD88 $ sudo add-apt-repository \ &amp;quot;deb [arch=amd64] https://download.</description>
+    </item>
+    
+    <item>
+      <title>ハンズオン2</title>
+      <link>https://reikote.github.io/posts/hands-on-aws/01/</link>
+      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
+      
+      <guid>https://reikote.github.io/posts/hands-on-aws/01/</guid>
+      <description>kubernetes/helm/nvidia-docker/Rancherのインストール 管理ノード    Software Version Version Info     kubectl 1.20 https://kubernetes.io/ja/docs/tasks/tools/install-kubectl/#   helm 3.x https://github.com/helm/helm/releases    コンテナで実行    Software Version Version Info     Rancher 2.4.8 https://rancher.com/support-maintenance-terms/all-supported-versions/rancher-v2.4.8/    計算ノード    Software Version Version Info     nvidia-cuda 10.2 https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;target_distro=Ubuntu&amp;amp;target_version=1804&amp;amp;target_type=deblocal   nvidia-docker2 2.x https://github.com/NVIDIA/nvidia-docker    kubernetes  インストール手順 ※こちらを参考
+$ curl -LO &amp;quot;https://storage.</description>
+    </item>
+    
+    <item>
+      <title>ハンズオン3</title>
+      <link>https://reikote.github.io/posts/hands-on-aws/02/</link>
+      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
+      
+      <guid>https://reikote.github.io/posts/hands-on-aws/02/</guid>
+      <description>Harborのセットアップ  管理ノード
+   Software Version Version Info     Harbor 1.10.5 https://github.com/goharbor/harbor/releases    インストール手順 ※こちらを参考
+ TLS無しのセットアップ  $ wget https://github.com/goharbor/harbor/releases/download/v1.10.5/harbor-offline-installer-v1.10.5.tgz $ tar xzvf ./harbor-offline-installer-v1.10.5.tgz $ cd harbor $ vim harbor.yml 以下のように編集する
+IPアドレスは管理ノード
+Hostname:192.168.100.xxx http: Port:80 # ここがalready useとなる場合は、適当に5000等にする(任意) harbor_admin_passwd: password # 下の部分はTLS絡みのため、コメントアウトする # https: # Ports:443 # certificate: # private_key: 社内でプライベートレジストリのイメージを使用する場合は、暗号化通信に関する設定を事前にする必要がある (管理/計算ノードどちらも) ※参考
+$ sudo vim /etc/docker/daemon.json 下記をjsonに追加(Port番号は80以外なら必要です)
+{ &amp;quot;insecure-registries&amp;quot;:[&amp;quot;192.168.100.xxx:Port番号&amp;quot;] } #プライベートレジストリ(管理ノード)のIPアドレス $ sudo systemctl restart docker $ sudo .</description>
+    </item>
+    
+    <item>
+      <title>ハンズオン4</title>
+      <link>https://reikote.github.io/posts/hands-on-aws/03/</link>
+      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
+      
+      <guid>https://reikote.github.io/posts/hands-on-aws/03/</guid>
+      <description>MNISTの学習ジョブを投入する まずはマニュフェスト(ymlファイル)を作成します。
+$ vim main.yml main.yml
+apiVersion: v1 kind: Pod metadata: name: mnist-example spec: containers: - name: keras-gpu image: 192.168.100.xxx/library/tensorflow:21.02-tf2-py3:21.02-tf2-py3 tty: true stdin: true command: [&amp;quot;/bin/sh&amp;quot;, &amp;quot;-c&amp;quot;] args: - pip install -r requirements.txt &amp;amp;&amp;amp; python main.py workingDir: /workspace/data resources: limits: nvidia.com/gpu: 1 volumeMounts: - mountPath: /workspace/data name: configmap-volume restartPolicy: Never volumes: - name: configmap-volume configMap: defaultMode: 0777 name: mnist-configmap --- apiVersion: v1 kind: ConfigMap metadata: name: mnist-configmap data: main.py: | import keras from keras.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Appendix on My New Hugo Site</title>
+    <link>https://reikote.github.io/posts/appendix/</link>
+    <description>Recent content in Appendix on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 22 Dec 2020 12:11:23 +0900</lastBuildDate><atom:link href="https://reikote.github.io/posts/appendix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>コンテナイメージの作り方</title>
+      <link>https://reikote.github.io/posts/appendix/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9-/</link>
+      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
+      
+      <guid>https://reikote.github.io/posts/appendix/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9-/</guid>
+      <description>コンテナイメージの作り方とDockerfileのまとめ ※参考 Dockerfileのベストプラクティス
+Docker, Docker-composeがインストールされていることが前提です。
+試しにやってみる $ mkdir python_test $ cd python_test $ echo &amp;quot;print(\&amp;quot;Hello World\&amp;quot;)&amp;quot; &amp;gt; hello.py $ vim Dockerfile Dockerfile FROM python:3 ENV http_proxy=http://proxy.pn.macnica.co.jp:10080 ENV https_proxy=http://proxy.pn.macnica.co.jp:10080 ADD hello.py /example/ RUN apt-get update RUN apt-get -y install locales &amp;amp;&amp;amp; \ localedef -f UTF-8 -i ja_JP ja_JP.UTF-8 ENV LANG ja_JP.UTF-8 ENV LANGUAGE ja_JP:ja ENV LC_ALL ja_JP.UTF-8 ENV TZ JST-9 ENV TERM xterm RUN apt-get install -y vim less RUN pip install --upgrade pip RUN pip install --upgrade setuptools 補足：Dockerfile命令解説  FROM [image:tag] コンテナイメージの取得先を選択するもの</description>
+    </item>
+    
+    <item>
+      <title>Markdown記法とLearnの作法</title>
+      <link>https://reikote.github.io/posts/appendix/learn%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/</link>
+      <pubDate>Tue, 22 Dec 2020 11:34:44 +0900</pubDate>
+      
+      <guid>https://reikote.github.io/posts/appendix/learn%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/</guid>
+      <description>Markdown記法 こちらを参考にしましょう
+ Wikipedia Qiita 日本語Markdownユーザー会  様々な書き方 h1 h2 h3 h4 h5 h6 コメント 水平線    太字 ABC abc ABC
+ブロック表示  こうやってやるんだよ
+ ネストもできる
+  箇条書き  aaa bbb ccc  ddd eee fff   aaa   bbb    順序書き  aaa bbb ccc ddd eee  インライン aaaaaabbb
+よくわからん // aaa aa bbbb cccc
+コードの書き方 aaaa bbbb dfaefa fdafa 表の書き方    Command Description     data path to data files to supply the data that will be passed into templates.</description>
+    </item>
+    
+    <item>
+      <title>Hugo Install &amp; Deploy</title>
+      <link>https://reikote.github.io/posts/appendix/hugo-install/</link>
+      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
+      
+      <guid>https://reikote.github.io/posts/appendix/hugo-install/</guid>
+      <description>Install Hugo  $ wget https://github.com/gohugoio/hugo/releases/download/v0.82.0/hugo_0.82.0_Linux-64bit.deb $ sudo apt install ./hugo_0.82.0_Linux-64bit.deb $ hugo version $ hugo new site workshop $ cd workshop $ git init $ git submodule add https://github.com/matcornic/hugo-theme-learn.git themes/learn $ echo theme = \&amp;quot;learn\&amp;quot; &amp;gt;&amp;gt; config.toml $ cat config.toml $ hugo new posts/my-first-post.md $ hugo server --bind 192.168.100.136 -p 30000 IPアドレス:30000でアクセス可能に
+/static/imagesと/contentをコピーすればOK
+画像と</description>
+    </item>
+    
+    <item>
+      <title>用語・技術情報まとめ</title>
+      <link>https://reikote.github.io/posts/appendix/%E7%94%A8%E8%AA%9E%E9%9B%86/</link>
+      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
+      
+      <guid>https://reikote.github.io/posts/appendix/%E7%94%A8%E8%AA%9E%E9%9B%86/</guid>
+      <description>Dockerとは？  学習に最適なページ  入門Docker Dockerドキュメント 日本語版  Docker Composeとは  解説ページ  Kubernetesとは？  Rancherとは？  Harborとは？   </description>
+    </item>
+    
+  </channel>
+</rss>

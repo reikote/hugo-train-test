@@ -1,256 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kotera Study on My New Hugo Site</title>
+    <title>Kotera Hands on on My New Hugo Site</title>
     <link>https://reikote.github.io/</link>
-    <description>Recent content in Kotera Study on My New Hugo Site</description>
+    <description>Recent content in Kotera Hands on on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 22 Dec 2020 12:11:23 +0900</lastBuildDate><atom:link href="https://reikote.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>構築環境の概要</title>
+      <title>ハンズオン1</title>
       <link>https://reikote.github.io/posts/00/</link>
       <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
       
       <guid>https://reikote.github.io/posts/00/</guid>
-      <description>このドキュメントについて </description>
+      <description>Docker &amp;amp; Docker Composeのインストール 管理ノードと計算ノードに下記Versionをインストールしていきます
+   Software Version Version Info     Docker 19.03.09 https://docs.docker.com/engine/release-notes/   Docker Compose 1.28.2 https://docs.docker.com/compose/release-notes/     Dockerのインストール ※こちらを参考
+ セットアップ  $ sudo apt-get update $ sudo apt-get install \ apt-transport-https \ ca-certificates \ curl \ gnupg-agent \ software-properties-common $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo apt-key fingerprint 0EBFCD88 $ sudo add-apt-repository \ &amp;quot;deb [arch=amd64] https://download.</description>
     </item>
     
     <item>
-      <title>VMのセットアップ</title>
+      <title>ハンズオン2</title>
       <link>https://reikote.github.io/posts/01/</link>
       <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
       
       <guid>https://reikote.github.io/posts/01/</guid>
-      <description>最新の評価環境 2021/01/15 OST3 AI学習プラットフォーム 復帰しました。復帰に伴い、IP変わってます。
- ESXi：192.168.100.126 もしくは 192.168.100.176 vgpu01: 192.168.100.179 …sakuma-san use vgpu02: 192.168.100.180 …kaka-san use vgpu03: 192.168.100.181 vgpu04: 192.168.100.182  VMware ESXi の使い方    こちらにアクセスしログイン
-  IDとパスワードはこちら   ID:root
-PW:P@ssw0rd
-     仮想マシンの作成/登録を選択   新規仮想マシンの作成を選択し、任意の名前とOSを入力     ストレージはNVMeを使用する
-  スペックの設定
- CPU 8cores RAM 32GB HDD 100GB     完了後NASストレージをアタッチしてOSをそちらから起動   ログイン後はまずSSHの設定
-  $ sudo apt-get install aptitude $ sudo aptitude install ssh $ sudo vi /etc/ssh/sshd_config #以下のように書き換え PermitRootLogin no #PermitRootLogin prohibit-password  ifconfigでIPアドレスを確認後ターミナルでログイン!</description>
-    </item>
-    
-    <item>
-      <title>SWのインストールと設定</title>
-      <link>https://reikote.github.io/posts/02/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/02/</guid>
-      <description>環境構築に必要なソフトウェア まずは下記のソフトウェアをインストールします。それぞれのインストール手順も記載しています。
-マスター    Software Version Version Info     Docker 19.03.09 https://docs.docker.com/engine/release-notes/   docker-compose 1.28.2 https://docs.docker.com/compose/release-notes/   kubectl 1.20 https://kubernetes.io/ja/docs/tasks/tools/install-kubectl/#   helm 3.x https://github.com/helm/helm/releases    コンテナで実行    Software Version Version Info     Rancher 2.4.8 https://rancher.com/support-maintenance-terms/all-supported-versions/rancher-v2.4.8/   Harbor 1.10.5 https://github.com/goharbor/harbor/releases    ワーカー    Software Version Version Info     Docker 19.</description>
-    </item>
-    
-    <item>
-      <title>Rancherの立ち上げ</title>
-      <link>https://reikote.github.io/posts/03/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/03/</guid>
-      <description>Rancher  立ち上げ方法 ※参考リンク
- コンテナの起動 ポートは被ると面倒なのでずらす。 Versionは2.4.8でないと上手くいかなかったので注意  $ sudo docker run -d --restart=unless-stopped -p 8080:80 -p 8443:443 rancher/rancher:v2.4.8 課題１：Docker-compose使ってやってみる   課題１回答   $ mkdir rancher_test $ cd rancher_test $ vim docker-compose.yml docker-compose.yml
-version: &#39;3&#39; services: rancher: restart: always image: rancher/rancher:v2.4.8 ports: - &amp;quot;8080:80&amp;quot; - &amp;quot;8443:443&amp;quot; $ docker-compose up -d   
- GUI画面にアクセス IPアドレス:8080をブラウザでアクセス  admin user
- パスワードを設定 アクセスURLを設定 192.168.100.xxx:8443 ClustersページからAdd Clusterをクリック  From existing nodes (Custom)をクリック 任意の名前を入力 Advanced Optionを気を付けてNext (下記画像) etcd, control, workerを選択しコマンドをコピーする マスターノードで実行 workerのみを選択してコマンドをワーカーで実行 ノードに追加されればOK (少し時間がかかった) ダッシュボードが表示されれば成功    Nginx ingressになっていると80番ポートを使ってしまうため、後のHarborの設定が面倒になる</description>
-    </item>
-    
-    <item>
-      <title>Harborとの連携</title>
-      <link>https://reikote.github.io/posts/04/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/04/</guid>
-      <description>Harbor  インストール手順 ※こちらを参考
- TLS無しセットアップ  $ wget https://github.com/goharbor/harbor/releases/download/v1.10.5/harbor-offline-installer-v1.10.5.tgz $ tar xzvf./harbor-offline-installer-v1.10.5.tgz $ cd harbor $ vim harbor.yml # 以下のように編集 IPアドレスはMasterノード Hostname:192.168.100.xxx http: Port:80 # ここがalready useとなる場合、5000等にする harbor_admin_passwd: password # 下の部分はTLS絡みのため、コメントアウトした # https: # Ports:443 # certificate: # private_key: $ sudo ./install.sh  Dockerに暗号化通信の利用無に関する設定を事前にやっておく必要がある (Master/Workerどちらも)  ※参考
-$ sudo vim /etc/docker/daemon.json { &amp;quot;insecure-registries&amp;quot;:[”192.168.100.xxx(80以外なら:portも追加)&amp;quot;] } ##プライベートレジストリのIPアドレス $ sudo systemctl restart docker  ハーバーにログイン http://192.168.100.xxx:xxxx/  admin password
- トラブルシューティング コンテナの停止方法等 ※参考  ハーバーを再構成する</description>
-    </item>
-    
-    <item>
-      <title>NGCにログイン &amp; Harborにプッシュ</title>
-      <link>https://reikote.github.io/posts/05/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/05/</guid>
-      <description>NGCのアカウント作成とログイン  アカウントのところからSetupを選択 Generate API Keyをクリック   APIキーをメモし,DockerからNGCにログイン  NGCにログイン  プライベートレポジトリとNGCにログイン  $ sudo docker login 192.168.100.xxx $ sudo docker login nvcr.io -u $oauthtoken -p bW1mZDRrcXNmbjR1ZXA5NDJtbjBwN3VkZTI6NTZhMTM5YWQtOGRkZS00YTEwLTg3OWUtOTBmOTU3NmZiNjM0  NGCのイメージをプライベートレポジトリに保存  $ vim Dokerfile FROM nvcr.io/nvidia/pytorch:20.09-py3 ENV http_proxy=http://proxy.pn.macnica.co.jp:10080 ENV https_proxy=http://proxy.pn.macnica.co.jp:10080 $ sudo docker build -t 192.168.100.xxx/library/pytorch:20.09-py3 . $ sudo docker push 192.168.100.xxx/library/pytorch:20.09-py3  保存されていることをHarborのGUIで確認    </description>
-    </item>
-    
-    <item>
-      <title>ジョブの投入</title>
-      <link>https://reikote.github.io/posts/06/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/06/</guid>
-      <description>マニュフェストの作成  マニュフェスト(yamlファイル)を作成します。  $ vim test.yaml test.yaml
-apiVersion: v1 kind: Pod metadata: name: pytorch-job spec: containers: - name: pytorch-container image: 192.168.100.xxx:xxxx/library/pytorch:20.09-py3 command: [&amp;quot;/bin/sh&amp;quot;] args: [&amp;quot;-c&amp;quot;, &amp;quot;python /workspace/examples/upstream/mnist/main.py&amp;quot;] resources: limits: nvidia.com/gpu: 1 imagePullSecrets: - name : nvidia restartPolicy: Never  ジョブを投入してみる  $ kubectl create -f test.yaml  動作確認  $ kubectl get pod   Rancherで実際に動いているか確認してみる   もし何度か試したい場合はpodを消す必要がある
-  $ kubectl delete pod pytorch-job  </description>
-    </item>
-    
-    <item>
-      <title>ジョブの投入</title>
-      <link>https://reikote.github.io/posts/ansible-sakuma-san/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/ansible-sakuma-san/</guid>
-      <description>マニュフェストの作成  マニュフェスト(yamlファイル)を作成します。  $ vim test.yaml test.yaml
-apiVersion: v1 kind: Pod metadata: name: pytorch-job spec: containers: - name: pytorch-container image: 192.168.100.xxx:xxxx/library/pytorch:20.09-py3 command: [&amp;quot;/bin/sh&amp;quot;] args: [&amp;quot;-c&amp;quot;, &amp;quot;python /workspace/examples/upstream/mnist/main.py&amp;quot;] resources: limits: nvidia.com/gpu: 1 imagePullSecrets: - name : nvidia restartPolicy: Never  ジョブを投入してみる  $ kubectl create -f test.yaml  動作確認  $ kubectl get pod   Rancherで実際に動いているか確認してみる   もし何度か試したい場合はpodを消す必要がある
-  $ kubectl delete pod pytorch-job  </description>
-    </item>
-    
-    <item>
-      <title>コンテナイメージの作り方</title>
-      <link>https://reikote.github.io/posts/appendix/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9-/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/appendix/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9-/</guid>
-      <description>コンテナイメージの作り方とDockerfileのまとめ ※参考 Dockerfileのベストプラクティス
-Docker, Docker-composeがインストールされていることが前提です。
-試しにやってみる $ mkdir python_test $ cd python_test $ echo &amp;quot;print(\&amp;quot;Hello World\&amp;quot;)&amp;quot; &amp;gt; hello.py $ vim Dockerfile Dockerfile FROM python:3 ENV http_proxy=http://proxy.pn.macnica.co.jp:10080 ENV https_proxy=http://proxy.pn.macnica.co.jp:10080 ADD hello.py /example/ RUN apt-get update RUN apt-get -y install locales &amp;amp;&amp;amp; \ localedef -f UTF-8 -i ja_JP ja_JP.UTF-8 ENV LANG ja_JP.UTF-8 ENV LANGUAGE ja_JP:ja ENV LC_ALL ja_JP.UTF-8 ENV TZ JST-9 ENV TERM xterm RUN apt-get install -y vim less RUN pip install --upgrade pip RUN pip install --upgrade setuptools 補足：Dockerfile命令解説  FROM [image:tag] コンテナイメージの取得先を選択するもの</description>
-    </item>
-    
-    <item>
-      <title>Markdown記法とLearnの作法</title>
-      <link>https://reikote.github.io/posts/appendix/learn%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/</link>
-      <pubDate>Tue, 22 Dec 2020 11:34:44 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/appendix/learn%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9/</guid>
-      <description>Markdown記法 こちらを参考にしましょう
- Wikipedia Qiita 日本語Markdownユーザー会  様々な書き方 h1 h2 h3 h4 h5 h6 コメント 水平線    太字 ABC abc ABC
-ブロック表示  こうやってやるんだよ
- ネストもできる
-  箇条書き  aaa bbb ccc  ddd eee fff   aaa   bbb    順序書き  aaa bbb ccc ddd eee  インライン aaaaaabbb
-よくわからん // aaa aa bbbb cccc
-コードの書き方 aaaa bbbb dfaefa fdafa 表の書き方    Command Description     data path to data files to supply the data that will be passed into templates.</description>
-    </item>
-    
-    <item>
-      <title>Hugo Install &amp; Deploy</title>
-      <link>https://reikote.github.io/posts/appendix/hugo-install/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/appendix/hugo-install/</guid>
-      <description>Install Hugo  $ wget https://github.com/gohugoio/hugo/releases/download/v0.82.0/hugo_0.82.0_Linux-64bit.deb $ sudo apt install ./hugo_0.82.0_Linux-64bit.deb $ hugo version $ hugo new site workshop $ cd workshop $ git init $ git submodule add https://github.com/matcornic/hugo-theme-learn.git themes/learn $ echo theme = \&amp;quot;learn\&amp;quot; &amp;gt;&amp;gt; config.toml $ cat config.toml $ hugo new posts/my-first-post.md $ hugo server --bind 192.168.100.136 -p 30000 IPアドレス:30000でアクセス可能に
-/static/imagesと/contentをコピーすればOK
-画像と</description>
-    </item>
-    
-    <item>
-      <title>用語・技術情報まとめ</title>
-      <link>https://reikote.github.io/posts/appendix/%E7%94%A8%E8%AA%9E%E9%9B%86/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/appendix/%E7%94%A8%E8%AA%9E%E9%9B%86/</guid>
-      <description>Dockerとは？  学習に最適なページ  入門Docker Dockerドキュメント 日本語版  Docker Composeとは  解説ページ  Kubernetesとは？  Rancherとは？  Harborとは？   </description>
-    </item>
-    
-    <item>
-      <title>ハンズオン1</title>
-      <link>https://reikote.github.io/posts/hands-on/00/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/hands-on/00/</guid>
-      <description>Docker &amp;amp; Docker Composeのインストール 管理ノードと計算ノードに下記Versionをインストールしていきます
-   Software Version Version Info     Docker 19.03.09 https://docs.docker.com/engine/release-notes/   Docker Compose 1.28.2 https://docs.docker.com/compose/release-notes/     Dockerのインストール ※こちらを参考
- セットアップ  $ sudo apt-get update $ sudo apt-get install \ apt-transport-https \ ca-certificates \ curl \ gnupg-agent \ software-properties-common $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo apt-key fingerprint 0EBFCD88 $ sudo add-apt-repository \ &amp;quot;deb [arch=amd64] https://download.</description>
-    </item>
-    
-    <item>
-      <title>ハンズオン2</title>
-      <link>https://reikote.github.io/posts/hands-on/01/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/hands-on/01/</guid>
-      <description>kubernetes/helm/nvidia-docker/Rancherのインストール 管理ノード    Software Version Version Info     kubectl 1.20 https://kubernetes.io/ja/docs/tasks/tools/install-kubectl/#   helm 3.x https://github.com/helm/helm/releases    コンテナで実行    Software Version Version Info     Rancher 2.4.8 https://rancher.com/support-maintenance-terms/all-supported-versions/rancher-v2.4.8/    計算ノード    Software Version Version Info     nvidia-docker2 2.x https://github.com/NVIDIA/nvidia-docker    kubernetes  インストール手順 ※こちらを参考
-$ curl -LO &amp;quot;https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl&amp;quot; $ chmod +x .</description>
-    </item>
-    
-    <item>
-      <title>ハンズオン3</title>
-      <link>https://reikote.github.io/posts/hands-on/02/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/hands-on/02/</guid>
-      <description>Harborのセットアップ     Software Version Version Info     Harbor 1.10.5 https://github.com/goharbor/harbor/releases    インストール手順 ※こちらを参考
- TLS無しのセットアップ  $ wget https://github.com/goharbor/harbor/releases/download/v1.10.5/harbor-offline-installer-v1.10.5.tgz $ tar xzvf ./harbor-offline-installer-v1.10.5.tgz $ cd harbor $ vim harbor.yml 以下のように編集 IPアドレスはMasterノード
-Hostname:192.168.100.xxx http: Port:80 # ここがalready useとなる場合、5000等にする harbor_admin_passwd: password # 下の部分はTLS絡みのため、コメントアウトする # https: # Ports:443 # certificate: # private_key: $ sudo ./install.sh 社内でプライベートレジストリのイメージを使用する場合は、暗号化通信に関する設定を事前にやる必要がある (管理/計算ノードどちらも)
-※参考
-$ sudo vim /etc/docker/daemon.json 下記をjsonに追加
-{ &amp;quot;insecure-registries&amp;quot;:[”192.168.100.xxx:80&amp;quot;] } ##プライベートレジストリ(管理ノード)のIPアドレス $ sudo systemctl restart docker ハーバーにログインできたらOK!</description>
-    </item>
-    
-    <item>
-      <title>ハンズオン4</title>
-      <link>https://reikote.github.io/posts/hands-on/03/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/hands-on/03/</guid>
-      <description>MNISTの学習ジョブを投入する まずはマニュフェスト(yamlファイル)を作成します。
-$ vim test.yaml test.yaml
-apiVersion: v1 kind: Pod metadata: name: pytorch-job spec: containers: - name: pytorch-container image: 192.168.100.xxx:xxxx/library/pytorch:20.09-py3 command: [&amp;quot;/bin/sh&amp;quot;] args: [&amp;quot;-c&amp;quot;, &amp;quot;python /workspace/examples/upstream/mnist/main.py&amp;quot;] resources: limits: nvidia.com/gpu: 1 imagePullSecrets: - name : nvidia restartPolicy: Never マニュフェストからジョブを投入する
-kubectl create -f test.yaml ジョブの確認
-$ kubectl get pod Rancherでも実際に動いているか確認してみる ※もし何度か試したい場合はpodを消す必要がある
-$ kubectl delete pod pytorch-job </description>
-    </item>
-    
-    <item>
-      <title>ハンズオン1</title>
-      <link>https://reikote.github.io/posts/hands-on-aws/00/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/hands-on-aws/00/</guid>
-      <description>Docker &amp;amp; Docker Composeのインストール 管理ノードと計算ノードに下記Versionをインストールしていきます
-   Software Version Version Info     Docker 19.03.09 https://docs.docker.com/engine/release-notes/   Docker Compose 1.28.2 https://docs.docker.com/compose/release-notes/     Dockerのインストール ※こちらを参考
- セットアップ  $ sudo apt-get update $ sudo apt-get install \ apt-transport-https \ ca-certificates \ curl \ gnupg-agent \ software-properties-common $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - $ sudo apt-key fingerprint 0EBFCD88 $ sudo add-apt-repository \ &amp;quot;deb [arch=amd64] https://download.</description>
-    </item>
-    
-    <item>
-      <title>ハンズオン2</title>
-      <link>https://reikote.github.io/posts/hands-on-aws/01/</link>
-      <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
-      
-      <guid>https://reikote.github.io/posts/hands-on-aws/01/</guid>
-      <description>kubernetes/helm/nvidia-docker/Rancherのインストール 管理ノード    Software Version Version Info     kubectl 1.20 https://kubernetes.io/ja/docs/tasks/tools/install-kubectl/#   helm 3.x https://github.com/helm/helm/releases    コンテナで実行    Software Version Version Info     Rancher 2.4.8 https://rancher.com/support-maintenance-terms/all-supported-versions/rancher-v2.4.8/    計算ノード    Software Version Version Info     nvidia-cuda 10.2 https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;target_distro=Ubuntu&amp;amp;target_version=1804&amp;amp;target_type=deblocal   nvidia-docker2 2.x https://github.com/NVIDIA/nvidia-docker    kubernetes  インストール手順 ※こちらを参考
+      <description>kubernetes/helm/nvidia-docker/Rancherのインストール 管理ノード    Software Version Version Info     kubectl 1.20 https://kubernetes.io/ja/docs/tasks/tools/install-kubectl/#   helm 3.x https://github.com/helm/helm/releases    コンテナで実行    Software Version Version Info     Rancher 2.4.8 https://rancher.com/support-maintenance-terms/all-supported-versions/rancher-v2.4.8/    計算ノード    Software Version Version Info     nvidia-cuda 10.2 https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;target_distro=Ubuntu&amp;amp;target_version=1804&amp;amp;target_type=deblocal   nvidia-docker2 2.x https://github.com/NVIDIA/nvidia-docker    kubernetes  インストール手順（管理ノードのみ) ※こちらを参考
 $ curl -LO &amp;quot;https://storage.</description>
     </item>
     
     <item>
       <title>ハンズオン3</title>
-      <link>https://reikote.github.io/posts/hands-on-aws/02/</link>
+      <link>https://reikote.github.io/posts/02/</link>
       <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
       
-      <guid>https://reikote.github.io/posts/hands-on-aws/02/</guid>
+      <guid>https://reikote.github.io/posts/02/</guid>
       <description>Harborのセットアップ  管理ノード
    Software Version Version Info     Harbor 1.10.5 https://github.com/goharbor/harbor/releases    インストール手順 ※こちらを参考
  TLS無しのセットアップ  $ wget https://github.com/goharbor/harbor/releases/download/v1.10.5/harbor-offline-installer-v1.10.5.tgz $ tar xzvf ./harbor-offline-installer-v1.10.5.tgz $ cd harbor $ vim harbor.yml 以下のように編集する
-IPアドレスは管理ノード
-Hostname:192.168.100.xxx http: Port:80 # ここがalready useとなる場合は、適当に5000等にする(任意) harbor_admin_passwd: password # 下の部分はTLS絡みのため、コメントアウトする # https: # Ports:443 # certificate: # private_key: 社内でプライベートレジストリのイメージを使用する場合は、暗号化通信に関する設定を事前にする必要がある (管理/計算ノードどちらも) ※参考
-$ sudo vim /etc/docker/daemon.json 下記をjsonに追加(Port番号は80以外なら必要です)
+Hostnameは管理ノードのIPアドレス
+Hostname:192.168.100.xxx http: Port:80 # ここが使用中の場合は、適当に5000等にする(任意) harbor_admin_passwd: password # 下の部分はTLS絡みのため、コメントアウトする # https: # Ports:443 # certificate: # private_key: プライベートレジストリのイメージを使用する場合は、暗号化通信に関する設定を事前にする必要がある (管理/計算ノードどちらも) ※参考
+$ sudo vim /etc/docker/daemon.json 下記をjsonに追加
 { &amp;quot;insecure-registries&amp;quot;:[&amp;quot;192.168.100.xxx:Port番号&amp;quot;] } #プライベートレジストリ(管理ノード)のIPアドレス $ sudo systemctl restart docker $ sudo .</description>
     </item>
     
     <item>
       <title>ハンズオン4</title>
-      <link>https://reikote.github.io/posts/hands-on-aws/03/</link>
+      <link>https://reikote.github.io/posts/03/</link>
       <pubDate>Tue, 22 Dec 2020 12:11:23 +0900</pubDate>
       
-      <guid>https://reikote.github.io/posts/hands-on-aws/03/</guid>
-      <description>MNISTの学習ジョブを投入する まずはマニュフェスト(ymlファイル)を作成します。
-$ vim main.yml main.yml
+      <guid>https://reikote.github.io/posts/03/</guid>
+      <description>MNISTの学習ジョブを投入する まずはマニフェスト(ymlファイル)を作成します。 $ vim main.yml main.yml imageはレジストリのものを選択する
 apiVersion: v1 kind: Pod metadata: name: mnist-example spec: containers: - name: keras-gpu image: 192.168.100.xxx/library/tensorflow:21.02-tf2-py3:21.02-tf2-py3 tty: true stdin: true command: [&amp;quot;/bin/sh&amp;quot;, &amp;quot;-c&amp;quot;] args: - pip install -r requirements.txt &amp;amp;&amp;amp; python main.py workingDir: /workspace/data resources: limits: nvidia.com/gpu: 1 volumeMounts: - mountPath: /workspace/data name: configmap-volume restartPolicy: Never volumes: - name: configmap-volume configMap: defaultMode: 0777 name: mnist-configmap --- apiVersion: v1 kind: ConfigMap metadata: name: mnist-configmap data: main.py: | import keras from keras.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://reikote.github.io/readme_jp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://reikote.github.io/readme_jp/</guid>
-      <description>AI学習環境構築用Ansibleスクリプト説明 前書き 本ドキュメントは、AI学習環境構築用に作成したAnsibleのスクリプトを使用・修正等の用途で用いる者を対象に作成したものです。
-Revision情報  2020/12/21 Rev.0: 初版作成  既知の問題・制約  rkeを使用したKubernetes v1.18のデプロイに失敗する（rke upは完了するが、全てのPodが立ち上がっていない）。 設定ファイルの生成部分がMaster x1 Worker x1固定（将来Versionで修正予定）。  rke prometheus hosts(dnsmasq稼働サーバ)   管理ノードにKubernetesのWorkerノードの属性を持たせられない。正確にはrke上で管理ノードにWorkerのRoleを割り当てると、iptablesの設定がHarborと競合する。  前提条件 Ansibleはクラスタ外のPC（会社PC）を使用することを前提に作成しています。もし異なる環境であったとしても、以下の前提条件と同様にAnsibleと周辺パッケージをインストールできるのであれば問題ありません。 作成者は、会社PCにWSL(Windows Subsystem for Linux)をインストールし、その上にAnsibleと関連パッケージをインストールして使用しています。
-会社のPCにWSLをインストールすること自体には問題はありませんが、Microsoft Storeアプリの仕様で社内のインストールに失敗します。社外のネットワークに接続して、Ubuntu 18.04ないしUbuntu 20.04をインストールしてください。
-Ansibleの使用環境が準備出来たら、追加で以下の準備を行ってください。
- 構築対象のノードでのSSHアクセス（今回はパスワードでのログインを前提にしています）  Ubuntuの場合はsudo apt install openssh-serverです（Ubuntu serverの場合はインストールプロセスでSSHログインを有効にするか聞かれるので、そこで有効にしている場合は必要ありません）。 CentOSの場合、通常はデフォルトでSSHログインできるので、インストールは必要ありませんが、後から削除されたなどの理由でSSHが使えない場合は以下のコマンドでインストールしてください。 yum install openssh-server   Python3環境の準備  Ubuntu 18.04、CentOS 7以降であればプリインストールされているはずなので、インストールは不要（のはず）です。   Ansibleのインストール。上記のWSLでUbuntuを使用していることを前提条件として、以下のコマンドでインストールができます。単にsudo apt install ansibleとすると古いVersionがインストールされるかもしれないので注意。（Versionが古いと一部モジュールが動かない可能性がある）  sudo apt-get install software-properties-commonsudo apt-add-repository ppa:ansible/ansiblesudo apt-get updatesudo apt-get install ansibleまた、Ansible自体はPython2を前提にしているので、この点は注意。（現状のUbuntu, CentOSにはPython2が含まれているが将来的に削除される可能性有）</description>
     </item>
     
   </channel>

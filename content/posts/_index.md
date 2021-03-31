@@ -1,9 +1,9 @@
 ---
-title: "学習環境 構築方法"
+title: "AI学習環境構築ハンズオン"
 date: 2020-12-22T12:11:23+09:00
 draft: false
 chapter: true
 ---
 
-# 備忘録です
+Version 0.0001
 
